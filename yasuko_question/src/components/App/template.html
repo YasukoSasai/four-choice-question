@@ -14,8 +14,7 @@
       {{ item }} 
     </div>
 </div>
-<div v-if="explanationFlag" style="padding-top:30px;">
-  解説: {{ questions[this.questionNumber].explanation}}
+<div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">
 </div>
 <br><br>
 <v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
