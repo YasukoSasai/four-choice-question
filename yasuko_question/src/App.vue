@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <!-- <div v-for="(question, key) in questions" v-bind:key=key>
-      {{ question.question }}<br>
-      <button v-for="(item, key) in question.choices" v-bind:key=key @click="check(key, question.answer)">
-        {{ item }}
-      </button>
-      <br><br><br>
-    </div>  -->
     <div>
       {{ questions[this.questionNumber].question }}
     </div>
-    <button v-for="(item, key) in questions[this.questionNumber].choices" v-bind:key=key @click="check(key, questions[questionNumber].answer)">
+    <div class="question-container" v-for="(item, key) in questions[this.questionNumber].choices" v-bind:key=key @click="check(key, questions[questionNumber].answer)">
+      <v-btn class="choice-button" depressed small color="#CE93D8" dark >
+        {{key + 1}}
+      </v-btn>
+      <div class="choice-txt">
         {{ item }}
-    </button>
+      </div>
+    </div>
     <div v-if="explanationFlag">
       解説: {{ questions[this.questionNumber].explanation }}
     </div>
     <br><br><br>
-    <button @click="nextQuestino()">次の問題へ</button> 
+    <v-btn @click="nextQuestino()" color="#5E35B1" dark >
+        次の問題へ
+    </v-btn>
   </div>
 </template>
 <script>
@@ -40,6 +40,17 @@ export default {
           choices: ["油", "アイス", "刺身", "コーヒーゼリー"],
           answer: 2,
           explanation: "刺身はうまいからです。"
+        },
+        {
+          question: "ITIL 2011 editionによれば，サービス・パッケージの説明として，適切なものはどれか。",
+          choices: [
+            "コアサービス，実現サービス及び強化サービスの組合せで構成された，特定の種類の顧客ニーズへのソリューションを提供する複数のサービスの集まりである。",
+            "サービス・パイプライン，サービス・カタログ及び廃止済みサービスで構成された，サービス・プロバイダによって管理されている全てのサービスである。",
+            "成果物，価格，連絡先などが内容として含まれた，稼働中の全てのITサービスに関する情報を格納するデータベース又は構造化された文書である。", 
+            "ハードウェア，ソフトウェア，ライセンス，文書などで構成された，稼働中のITサービスに対して承認された変更を実施するためのコンポーネントの集合である。", 
+            ],
+          answer: 0,
+          explanation: "設問の例「10月31日の場合は、4月30日以降のデータについて、指定日の状態にファイルを復元できるようにする」ために何本の磁気テープが必要かを考えてみます。指定日のデータを復元するには、指定日の月初に取ったフルバックアップと、毎日記録する差分バックアップ用の磁気テープの2本が必要になります。4月，5月，…，10月までには全部で7つの月が存在します。各月についてフル用と差分用で2本の磁気テープが必要になるので、少なくとも(7×2＝)14本の磁気テープが必要になります。"
         }
       ]
     }
@@ -70,5 +81,20 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.choice-button{
+  margin: 10px;
+}
+
+.question-container{
+  margin-top: 20px;
+  margin-left: 30%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.choice-txt{
+  margin: auto 0 auto 10px;
 }
 </style>
