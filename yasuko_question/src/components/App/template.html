@@ -1,0 +1,24 @@
+<div id="app">
+  <div class="question-parts">
+    {{ questions[this.questionNumber].question }}
+  </div>
+  <div 
+    class="question-container"
+    v-for="(item, key) in questions[this.questionNumber].choices" 
+    v-bind:key=key 
+  >
+    <v-btn class="choice-button" depressed small color="#F06292" dark @click="check(key, questions[questionNumber].answer)">
+      {{key + 1}}
+    </v-btn>
+    <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
+      {{ item }} 
+    </div>
+</div>
+<div v-if="explanationFlag" style="padding-top:30px;">
+  解説: {{ questions[this.questionNumber].explanation}}
+</div>
+<br><br>
+<v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
+    次の問題へ
+</v-btn>
+</div>

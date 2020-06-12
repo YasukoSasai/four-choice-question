@@ -1,0 +1,39 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  background: #FCE4EC;
+  width:670px;
+  margin: 60px auto 0;
+  padding:30px;
+}
+
+.question-parts{
+  width:600px;
+  margin:0 auto;
+}
+
+.choice-button{
+  margin: 10px;
+}
+
+.question-container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.choice-txt{
+  margin: auto 0 auto 10px;
+  background: #F8BBD0;
+  width:80%;
+  padding:10px;
+  border-radius: 5px;
+  word-break: normal;
+}
+
+.next-button{
+  text-align: right;
+}

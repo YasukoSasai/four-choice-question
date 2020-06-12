@@ -1,31 +1,3 @@
-<template>
-  <div id="app">
-      <div class="question-parts">
-        {{ questions[this.questionNumber].question }}
-      </div>
-      <div 
-        class="question-container"
-        v-for="(item, key) in questions[this.questionNumber].choices" 
-        v-bind:key=key 
-      >
-        <v-btn class="choice-button" depressed small color="#F06292" dark @click="check(key, questions[questionNumber].answer)">
-          {{key + 1}}
-        </v-btn>
-        <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
-          {{ item }} 
-        </div>
-    </div>
-    <div v-if="explanationFlag" style="padding-top:30px;">
-      解説: {{ questions[this.questionNumber].explanation}}
-    </div>
-    <br><br>
-    <v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
-        次の問題へ
-    </v-btn>
-  </div>
-</template>
-<script>
-
 export default {
   name: 'App',
   data(){
@@ -75,46 +47,3 @@ export default {
     }
   }
 }
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  background: #FCE4EC;
-  width:670px;
-  margin: 60px auto 0;
-  padding:30px;
-}
-
-.question-parts{
-  width:600px;
-  margin:0 auto;
-}
-
-.choice-button{
-  margin: 10px;
-}
-
-.question-container{
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-start;
-
-}
-
-.choice-txt{
-  margin: auto 0 auto 10px;
-  background: #F8BBD0;
-  width:80%;
-  padding:10px;
-  border-radius: 5px;
-  word-break: normal;
-}
-
-.next-button{
-  text-align: right;
-}
-</style>
