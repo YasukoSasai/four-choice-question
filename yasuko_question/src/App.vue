@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <div>
-      {{ questions[this.questionNumber].question }}
-    </div>
-    <div class="question-container" v-for="(item, key) in questions[this.questionNumber].choices" v-bind:key=key @click="check(key, questions[questionNumber].answer)">
-      <v-btn class="choice-button" depressed small color="#CE93D8" dark >
-        {{key + 1}}
-      </v-btn>
-      <div class="choice-txt">
-        {{ item }}
+      <div class="question-parts">
+        {{ questions[this.questionNumber].question }}
       </div>
+      <div 
+        class="question-container"
+        v-for="(item, key) in questions[this.questionNumber].choices" 
+        v-bind:key=key 
+      >
+        <v-btn class="choice-button" depressed small color="#F06292" dark @click="check(key, questions[questionNumber].answer)">
+          {{key + 1}}
+        </v-btn>
+        <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
+          {{ item }} 
+        </div>
     </div>
-    <div v-if="explanationFlag">
-      解説: {{ questions[this.questionNumber].explanation }}
+    <div v-if="explanationFlag" style="padding-top:30px;">
+      解説: {{ questions[this.questionNumber].explanation}}
     </div>
-    <br><br><br>
-    <v-btn @click="nextQuestino()" color="#5E35B1" dark >
+    <br><br>
+    <v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
         次の問題へ
     </v-btn>
   </div>
@@ -50,7 +54,7 @@ export default {
             "ハードウェア，ソフトウェア，ライセンス，文書などで構成された，稼働中のITサービスに対して承認された変更を実施するためのコンポーネントの集合である。", 
             ],
           answer: 0,
-          explanation: "設問の例「10月31日の場合は、4月30日以降のデータについて、指定日の状態にファイルを復元できるようにする」ために何本の磁気テープが必要かを考えてみます。指定日のデータを復元するには、指定日の月初に取ったフルバックアップと、毎日記録する差分バックアップ用の磁気テープの2本が必要になります。4月，5月，…，10月までには全部で7つの月が存在します。各月についてフル用と差分用で2本の磁気テープが必要になるので、少なくとも(7×2＝)14本の磁気テープが必要になります。"
+          explanation: "<h2>分類：セキュリティ</h2><br><p>設問の例「10月31日の場合は、4月30日以降のデータについて、指定日の状態にファイルを復元できるようにする」ために何本の磁気テープが必要かを考えてみます。指定日のデータを復元するには、指定日の月初に取ったフルバックアップと、毎日記録する差分バックアップ用の磁気テープの2本が必要になります。4月，5月，…，10月までには全部で7つの月が存在します。各月についてフル用と差分用で2本の磁気テープが必要になるので、少なくとも(7×2＝)14本の磁気テープが必要になります。<p>"
         }
       ]
     }
@@ -78,9 +82,16 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: #FCE4EC;
+  width:670px;
+  margin: 60px auto 0;
+  padding:30px;
+}
+
+.question-parts{
+  width:600px;
+  margin:0 auto;
 }
 
 .choice-button{
@@ -89,12 +100,21 @@ export default {
 
 .question-container{
   margin-top: 20px;
-  margin-left: 30%;
   display: flex;
   justify-content: flex-start;
+
 }
 
 .choice-txt{
   margin: auto 0 auto 10px;
+  background: #F8BBD0;
+  width:80%;
+  padding:10px;
+  border-radius: 5px;
+  word-break: normal;
+}
+
+.next-button{
+  text-align: right;
 }
 </style>
