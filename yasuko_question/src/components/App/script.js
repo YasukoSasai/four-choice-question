@@ -4,6 +4,7 @@ export default {
     return{
       questionNumber: 0,
       explanationFlag: false,
+      resultFlag: null,
       questions:[
         {
           question: "私の出身地は？",
@@ -34,7 +35,7 @@ export default {
   methods:{
     check(selected, answer){
       this.explanationFlag = true;
-      ( selected === answer )? alert("大正解！！") : alert("不正解…")
+      this.resultFlag = ( selected === answer )? true : false
     },
     nextQuestino(){
       this.explanationFlag = false;
