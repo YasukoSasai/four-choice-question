@@ -1,6 +1,6 @@
 <div id="app">
   <div class="question-parts">
-    {{ questions[this.questionNumber].question }}
+    問題{{this.questionNumber + 1}}： {{ questions[this.questionNumber].question }}
   </div>
   <div 
     class="question-container"
@@ -14,8 +14,13 @@
       {{ item }} 
     </div>
 </div>
-<div v-if="explanationFlag" style="padding-top:30px;">
-  解説: {{ questions[this.questionNumber].explanation}}
+<div v-if="explanationFlag && resultFlag" style="padding-top:30px;">
+  <h3>正解！</h3>
+</div>
+<div v-if="explanationFlag && !resultFlag" style="padding-top:30px;">
+  <h3>不正解...</h3>
+</div>
+<div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">
 </div>
 <br><br>
 <v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
