@@ -20,6 +20,9 @@
 <div v-if="explanationFlag && !resultFlag" style="padding-top:30px;">
   <h3>不正解...</h3>
 </div>
+<div v-if="explanationFlag" style="padding-top:30px;">
+  <h3>解説: </h3>
+</div>
 <div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">
 </div>
 <br><br>
