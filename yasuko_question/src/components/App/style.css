@@ -37,3 +37,28 @@
 .next-button{
   text-align: right;
 }
+
+
+/*以下、レスポンシブデザイン用CSS*/
+@media screen and (max-width:700px) {
+  /*スマホ用のcssを記述*/
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    background: #FCE4EC;
+    width: 90%;
+    margin: 60px auto 0;
+    padding:30px;
+  }
+
+  .question-parts{
+    width: 100%;
+    margin:0 auto;
+  }
+}
+
+@media only screen and (min-width:700px) and (max-width:1023px) {
+  /*tablet用のcssを記述*/
+}
