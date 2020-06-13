@@ -5,6 +5,7 @@ export default {
       questionNumber: 0,
       explanationFlag: false,
       resultFlag: null,
+      numOfCorrect: 0,
       questions:[
         {
           question: "私の出身地は？",
@@ -35,12 +36,18 @@ export default {
   methods:{
     check(selected, answer){
       this.explanationFlag = true;
-      this.resultFlag = ( selected === answer )? true : false
+      if(selected === answer){
+        this.numOfCorrect++
+        this.resultFlag = true
+      }else{
+        this.resultFlag = false
+      }
     },
     nextQuestino(){
       this.explanationFlag = false;
       if (this.questionNumber == (this.questions.length - 1)){
         this.questionNumber = 0
+        this.numOfCorrect = 0
         alert("もう問題はありません...はじめの問題に戻ります。")
       }else{
         this.questionNumber++
