@@ -35,7 +35,7 @@
       </div>
       <div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
       </div><br>
-      <img v-bind:src="questions[this.questionNumber].image2">
+      <img v-if="explanationFlag" v-bind:src="questions[this.questionNumber].image2">
       <br><br>
       <v-btn class="next-button" @click="nextQuestion()" color="#EC407A" dark >
         次の問題へ
