@@ -15,29 +15,30 @@
     v-for="(item, key) in questions[this.questionNumber].choices" 
     v-bind:key=key 
   >
-    <v-btn class="choice-button" depressed small color="#F06292" dark @click="check(key, questions[questionNumber].answer)">
-      {{key + 1}}
-    </v-btn>
-    <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
-      {{ item }} 
-    </div>    
-    </div>
-
+  <v-btn class="choice-button" depressed small color="#F06292" dark @click="check(key, questions[questionNumber].answer)">
+    {{key + 1}}
+  </v-btn>
+  <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
+    {{ item }} 
+  </div>    
+  </div>
     
-      <div v-if="explanationFlag && resultFlag" style="padding-top:30px;">
-        <h3>正解！</h3>
-      </div>
-      <div v-if="explanationFlag && !resultFlag" style="padding-top:30px;">
-        <h3>不正解...</h3>
-      </div>
-      <div v-if="explanationFlag" style="padding-top:30px;">
-        <h3>解説: </h3>
-      </div>
-      <div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
-      </div><br>
-      <img v-if="explanationFlag" v-bind:src="questions[this.questionNumber].image2">
-      <br><br>
-      <v-btn class="next-button" @click="nextQuestion()" color="#EC407A" dark >
-        次の問題へ
-      </v-btn>    
+  <div  v-if="explanationFlag">
+    <div v-if="resultFlag" style="padding-top:30px;">
+      <h3>正解！</h3>
+    </div>
+    <div v-if="!resultFlag" style="padding-top:30px;">
+      <h3>不正解...</h3>
+    </div>
+    <div style="padding-top:30px;">
+      <h3>解説: </h3>
+    </div>
+    <div style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
+    </div><br>
+    <img v-bind:src="questions[this.questionNumber].image2">
+  </div>
+  <br><br>
+  <v-btn class="next-button" @click="nextQuestion()" color="#EC407A" dark >
+    次の問題へ
+  </v-btn>    
 </div>
