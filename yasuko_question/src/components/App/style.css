@@ -7,11 +7,27 @@
   width:670px;
   margin: 60px auto 0;
   padding:30px;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.hr{
+background-color:#F06292;
+height: 5px;
+border:none;
+opacity:0.5;
 }
 
 .question-parts{
   width:600px;
+  font-size: 18px;
+  margin:0 ;
+  font-weight: bold;
+}
+
+.question-parts2{
   margin:0 auto;
+
 }
 
 .choice-button{
@@ -38,6 +54,28 @@
   text-align: right;
 }
 
+/* 練習 */
+/* .fade-enter,
+.fede-leave-to{
+  opacity:0;
+}
+.fade-enter-active,
+.fade-leave-active{
+  transition:opacity 0.5s;
+} */
+
+
+
+.fade {
+  opacity: 0.0;
+  transition: all .5s ease-out;
+}
+
+.fade.is-show {
+  opacity: 1.0;
+}
+
+/*  */
 
 /*以下、レスポンシブデザイン用CSS*/
 @media screen and (max-width:700px) {

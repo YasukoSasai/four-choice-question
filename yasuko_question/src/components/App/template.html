@@ -1,10 +1,15 @@
 <div id="app">
   <div>
     正解数: {{ numOfCorrect }}/{{ questions.length }}
-  </div>
+  </div>  
+  <hr class="hr">
+  <br>
   <div class="question-parts">
-    問題{{this.questionNumber + 1}}： {{ questions[this.questionNumber].question }}
+    問題{{this.questionNumber + 1}}
   </div>
+  <div class="question-parts2">{{ questions[this.questionNumber].question }}
+  </div>
+  <img v-bind:src="questions[this.questionNumber].image">
   <div 
     class="question-container"
     v-for="(item, key) in questions[this.questionNumber].choices" 
@@ -15,21 +20,24 @@
     </v-btn>
     <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
       {{ item }} 
+    </div>    
     </div>
-</div>
-<div v-if="explanationFlag && resultFlag" style="padding-top:30px;">
-  <h3>正解！</h3>
-</div>
-<div v-if="explanationFlag && !resultFlag" style="padding-top:30px;">
-  <h3>不正解...</h3>
-</div>
-<div v-if="explanationFlag" style="padding-top:30px;">
-  <h3>解説: </h3>
-</div>
-<div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">
-</div>
-<br><br>
-<v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
-    次の問題へ
-</v-btn>
+
+    
+      <div v-if="explanationFlag && resultFlag" style="padding-top:30px;">
+        <h3>正解！</h3>
+      </div>
+      <div v-if="explanationFlag && !resultFlag" style="padding-top:30px;">
+        <h3>不正解...</h3>
+      </div>
+      <div v-if="explanationFlag" style="padding-top:30px;">
+        <h3>解説: </h3>
+      </div>
+      <div v-if="explanationFlag" style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
+      </div><br>
+      <img v-bind:src="questions[this.questionNumber].image2">
+      <br><br>
+      <v-btn class="next-button" @click="nextQuestino()" color="#EC407A" dark >
+        次の問題へ
+      </v-btn>    
 </div>
