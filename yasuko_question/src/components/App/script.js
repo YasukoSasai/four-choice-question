@@ -6,6 +6,7 @@ export default {
       explanationFlag: false,
       resultFlag: null,
       numOfCorrect: 0,
+      isPush: false,
       questions:[
         {
           question: "私の出身地は？",
@@ -37,10 +38,12 @@ export default {
     check(selected, answer){
       this.explanationFlag = true;
       if(selected === answer){
-        this.numOfCorrect++
         this.resultFlag = true
+        if(!this.isPush) this.numOfCorrect++
+        this.isPush = true
       }else{
         this.resultFlag = false
+        this.isPush = true
       }
     },
     nextQuestino(){
@@ -49,8 +52,10 @@ export default {
         this.questionNumber = 0
         this.numOfCorrect = 0
         alert("もう問題はありません...はじめの問題に戻ります。")
+        this.isPush = false
       }else{
         this.questionNumber++
+        this.isPush = false
       }
     }
   }
