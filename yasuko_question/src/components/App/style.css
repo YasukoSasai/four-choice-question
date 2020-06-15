@@ -5,7 +5,7 @@
   color: #2c3e50;
   background: #FCE4EC;
   width:670px;
-  margin: 60px auto 0;
+  margin: 30px auto ;
   padding:30px;
   border-radius: 10px;
   user-select: none;
@@ -48,6 +48,7 @@ opacity:0.5;
   padding:10px;
   border-radius: 5px;
   word-break: normal;
+  cursor: pointer;
 }
 
 .next-button{
