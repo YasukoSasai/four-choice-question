@@ -1,6 +1,7 @@
 import Question from "@/components/Question/Index.vue";
 import Home from "@/components/Home/Index.vue";
 
+
 export default [
   {
 		path: '/',
