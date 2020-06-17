@@ -1,0 +1,107 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  background: #FCE4EC;
+  width:670px;
+  margin: 30px auto ;
+  padding:30px;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.hr{
+background-color:#F06292;
+height: 5px;
+border:none;
+opacity:0.5;
+}
+
+.question-parts{
+  width:600px;
+  font-size: 18px;
+  margin:0 ;
+  font-weight: bold;
+}
+
+.question-parts2{
+  margin:0 auto;
+
+}
+
+.choice-button{
+  margin: 10px;
+}
+
+.question-container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.choice-txt{
+  margin: auto 0 auto 10px;
+  background: #F8BBD0;
+  width:80%;
+  padding:10px;
+  border-radius: 5px;
+  word-break: normal;
+  cursor: pointer;
+}
+
+.next-button{
+  text-align: right;
+}
+
+/* 練習 */
+/* .fade-enter,
+.fede-leave-to{
+  opacity:0;
+}
+.fade-enter-active,
+.fade-leave-active{
+  transition:opacity 0.5s;
+} */
+
+
+
+.fade {
+  opacity: 0.0;
+  transition: all .5s ease-out;
+}
+
+.fade.is-show {
+  opacity: 1.0;
+}
+
+/*  */
+
+/*以下、レスポンシブデザイン用CSS*/
+@media screen and (max-width:700px) {
+  /*スマホ用のcssを記述*/
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    background: #FCE4EC;
+    width: 90%;
+    margin: 60px auto 0;
+    padding:30px;
+  }
+
+  .question-parts{
+    width: 100%;
+    margin:0 auto;
+  }
+
+  img{
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width:700px) and (max-width:1023px) {
+  /*tablet用のcssを記述*/
+}
