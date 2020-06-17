@@ -1,13 +1,15 @@
 import Vue from 'vue'
-import App0 from "./App.vue";
-// import App from "@/components/App/Index.vue";
+import App from "@/components/App/Index.vue";
 import Vuetify from 'vuetify'
 import "vuetify/dist/vuetify.min.css";
+import router from './router'
 
 Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App0),
+  Vuetify,
+  router,
+  render: h => h(App),
 }).$mount('#app')
