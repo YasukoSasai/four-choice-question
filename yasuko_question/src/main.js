@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from "@/components/App/Index.vue";
 import Vuetify from 'vuetify'
 import "vuetify/dist/vuetify.min.css";
-import router from './router/Index.js'
+import router from './router'
 
 Vue.use(Vuetify)
 
