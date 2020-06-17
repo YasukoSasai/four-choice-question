@@ -1,23 +1,20 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "@/components/App/Home.vue";
-import Index from "@/components/App/Index.vue";
-
-// const Home = ()=> import(/* webpackChunkName: "Home" */ "@/components/App/Home.vue");
-// const Index = ()=> import(/* webpackChunkName: "Index" */ "@/components/App/Index.vue");
+import Home from "@/components/Home/Index.vue";
+import Question from "@/components/Question/Index.vue";
 
 Vue.use(Router);
 
 export default new Router({
-  // mode:"history",
+  mode:"history",
   routes:[
     {
-      path:'/', components: Home 
+      path: '/', 
+      components: Home 
     }, 
     {
-      path:'/index', 
-      components:Index
+      path: '/question', 
+      components: Question
     }
-      
   ]
 });
