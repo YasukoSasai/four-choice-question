@@ -6,6 +6,7 @@ export default {
       resultFlag: null,
       numOfCorrect: 0,
       rateOfCorrect:0,
+      numOfClick: 0,
       isPush: false,
       questions:[
         // G検定
@@ -112,7 +113,15 @@ export default {
     }
   },
   methods:{
+    scrollToElement() {  
+      var element = document.getElementById("target");
+      element.scrollIntoView();
+      element.scrollIntoView(false);
+      element.scrollIntoView({block: "end"});
+      element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }, 
     check(selected, answer){
+      if(!this.isPush) this.numOfClick++
       this.explanationFlag = true;
       if(selected === answer){
         this.resultFlag = true
@@ -122,6 +131,7 @@ export default {
         this.resultFlag = false
         this.isPush = true
       }
+      this.scrollToElement()
     },
     nextQuestion(){
       this.explanationFlag = false;
@@ -134,6 +144,12 @@ export default {
         this.questionNumber++
         this.isPush = false
       }
+      window.scrollTo( 0, 0 );
+    }
+  },
+  filters: {
+    rounding(value){
+      return Math.round(value)
     }
   }
 }

@@ -1,6 +1,12 @@
 <div id="app">
   <div>
     正解数: {{ numOfCorrect }}/{{ questions.length }}
+     <div v-if="this.numOfClick == 0">
+       (￣▽￣)
+     </div>
+     <div v-else>
+      正答率 :{{ numOfCorrect/this.numOfClick * 100 | rounding }} %
+    </div>
   </div>  
   <hr class="hr">
   <br>
@@ -22,21 +28,25 @@
     {{ item }} 
   </div>    
   </div>
-    
-  <div  v-if="explanationFlag">
-    <div v-if="resultFlag" style="padding-top:30px;">
-      <h3>正解！</h3>
+  <span id="target"></span>
+  <transition>
+    <div  v-show="explanationFlag">
+      <div v-show="resultFlag" style="padding-top:30px;">
+        <h3>正解！</h3>
+      </div>
+      <div v-show="!resultFlag" style="padding-top:30px;">
+        <h3>不正解...</h3>
+      </div>
+      <div style="padding-top:30px;">
+        <h3>解説: </h3>
+      </div>
+      <div style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
+      </div><br>
+      <img v-bind:src="questions[this.questionNumber].image2">
     </div>
-    <div v-if="!resultFlag" style="padding-top:30px;">
-      <h3>不正解...</h3>
-    </div>
-    <div style="padding-top:30px;">
-      <h3>解説: </h3>
-    </div>
-    <div style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
-    </div><br>
-    <img v-bind:src="questions[this.questionNumber].image2">
-  </div>
+  </transition>
+
+
   <br><br>
   <v-btn class="next-button" @click="nextQuestion()" color="#EC407A" dark >
     次の問題へ
