@@ -1,0 +1,16 @@
+#home {
+  /* height: 510px; */
+  margin:30px 100px;
+  padding: 30px;
+  border-radius: 10px;
+  color:rgba(44,62,80, 0.9);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toQuestion{
+  text-align: center;
+}
+
+.toQuestion.v-btn{
+  width: 200px;
+}

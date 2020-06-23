@@ -1,10 +1,10 @@
 <div id="app">
-  <div>
+  <div style="font-weight:bold;">
     正解数: {{ numOfCorrect }}/{{ questions.length }}
-     <div v-if="this.numOfClick == 0">
-       (￣▽￣)
-     </div>
-     <div v-else>
+    <div v-if="this.numOfClick == 0">
+    正答率
+    </div>
+    <div v-else>
       正答率 :{{ numOfCorrect/this.numOfClick * 100 | rounding }} %
     </div>
   </div>  
@@ -21,7 +21,7 @@
     v-for="(item, key) in questions[this.questionNumber].choices" 
     v-bind:key=key 
   >
-  <v-btn class="choice-button" depressed small color="#F06292" dark @click="check(key, questions[questionNumber].answer)">
+  <v-btn class="choice-button" depressed small color="rgba(51,51,51, 0.8)" dark @click="check(key, questions[questionNumber].answer)">
     {{key + 1}}
   </v-btn>
   <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
@@ -32,10 +32,10 @@
   <transition>
     <div  v-show="explanationFlag">
       <div v-show="resultFlag" style="padding-top:30px;">
-        <h3>正解！</h3>
+        <h3 style="color: #D32F2F;">正解！</h3>
       </div>
       <div v-show="!resultFlag" style="padding-top:30px;">
-        <h3>不正解...</h3>
+        <h3 style="color: #1A237E;">不正解...</h3>
       </div>
       <div style="padding-top:30px;">
         <h3>解説: </h3>
@@ -47,8 +47,10 @@
   </transition>
 
 
-  <br><br>
-  <v-btn class="next-button" @click="nextQuestion()" color="#EC407A" dark >
-    次の問題へ
-  </v-btn>    
+  <br>
+  <div class="next-button">
+    <v-btn @click="nextQuestion()" color="rgba(51,51,51, 0.8)" dark >
+      次の問題へ
+    </v-btn>    
+  </div>
 </div>
