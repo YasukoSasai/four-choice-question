@@ -1,5 +1,9 @@
 <div id="app">
   <div style="font-weight:bold;">
+    <button @click="readQuestions()">
+      参照！！！！！！！！！！！
+    </button>
+    <button @click="addQuestions">問題追加</button>
     正解数: {{ numOfCorrect }}/{{ questions.length }}
     <div v-if="this.numOfClick == 0">
     正答率
