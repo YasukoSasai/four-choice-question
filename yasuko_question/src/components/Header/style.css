@@ -11,3 +11,30 @@ div{
 .button{
   text-decoration: none;
 }
+
+@media screen and (max-width:700px){
+  div{
+    
+    height:110px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding:10px 20px 15px 30px;
+    color:#2c3e50;
+  }
+
+  h1{
+    width: 100%;
+    font-size: 25px;
+  }
+
+  .v-btn{
+    margin-right: 5px;
+    width:80px;
+  }
+}
+
+@media screen and (max-width:400px){
+  .v-btn{
+    margin-right: 5px;
+    width:70px;
+  }
+} 
