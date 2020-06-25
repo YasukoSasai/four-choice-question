@@ -71,10 +71,10 @@ border:none;
     opacity: 0;
 }
 
-.next-button {
+/* .next-button {
   display: inline;
   margin-left: 458px;
-}
+} */
 
 
 /*以下、レスポンシブデザイン用CSS*/
@@ -85,7 +85,7 @@ border:none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
-    background: #FCE4EC;
+    background: rgba( 255, 255, 255, 0.4 );
     width: 90%;
     margin: 60px auto 0;
     padding:30px;
@@ -99,6 +99,7 @@ border:none;
   img{
     width: 100%;
   }
+  
 }
 
 @media only screen and (min-width:700px) and (max-width:1023px) {
