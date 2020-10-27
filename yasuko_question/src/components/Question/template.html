@@ -22,7 +22,7 @@
   <img v-bind:src="questions[this.questionNumber].image">
   <div 
     class="question-container"
-    v-for="(item, key) in questions[this.questionNumber].choices" 
+    v-for="(item, key) in questions[this.questionNumber].choices"
     v-bind:key=key 
   >
   <v-btn class="choice-button" depressed small color="rgba(51,51,51, 0.8)" dark @click="check(key, questions[questionNumber].answer)">
