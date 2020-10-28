@@ -17,11 +17,11 @@ export default {
     }
   },
   created(){
-    //バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
+    // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
     axios.get('http://localhost:8080/g_questions')
       .then(response => {
-        console.log(response.data) // mockData
-        console.log(response.status) // 200
+        console.log(response)
+        console.log(response.data[1])
         this.questions = response.data
     })
   },

@@ -1,0 +1,32 @@
+<div id="board">
+  <h1 style="text-align: center;">G検定掲示板</h1><br>
+  <p style="font-weight:bold;">G検定過去問トレーニング掲示板は、受験者どうしの雑談や1人ではわからない問題を解決する場として設置してあります。コミュニティとしての活用はもちろん、管理人への連絡に使っていただいても構いません。</p><br>
+  
+  <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; ">
+  <br>
+  <div class="form">
+    <body>
+      <section>
+          <h2>新規投稿</h2>
+          <form action="" method="post">
+              <div class="name"><span class="label">お名前:</span><input type="text" name="name" value="" style="border: 2px solid rgb(104, 148, 201); border-radius: 6px"></div>
+              <div class="content"><span class="label">内容:</span><textarea name="comment" cols="30" rows="3" maxlength="200" wrap="hard" placeholder="200字以内で入力してください。" style="border: 2px solid rgb(104, 148, 201); border-radius: 6px"></textarea></div>
+              
+              <v-btn depressed small color="rgba(51,51,51, 0.8)" dark style="height: 50px; width: 170px; font-size: 18px;">投稿</v-btn>
+          </form>
+      </section>
+      <br>
+      <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; "><br>
+      <section class="toukou">
+          <h2>投稿一覧</h2>
+          <p>投稿はまだありません</p>
+      </section>
+      </body>
+  </div>
+  <br>
+  <div class="toHome">
+    <router-link to="/" class="button">
+      <v-btn depressed small color="rgba(51,51,51, 0.8)" dark style="height: 50px; width: 170px; font-size: 18px;">HOME</v-btn>
+    </router-link>
+  </div>
+</div>
