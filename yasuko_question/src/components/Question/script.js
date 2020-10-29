@@ -18,7 +18,7 @@ export default {
   },
   created(){
     // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
-    axios.get('http://localhost:8080/g_questions')
+    axios.get('http://localhost:3000/g_questions')
       .then(response => {
         console.log(response)
         console.log(response.data[1])

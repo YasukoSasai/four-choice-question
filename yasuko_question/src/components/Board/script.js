@@ -44,7 +44,7 @@ export default {
             "explanation": this.explanation
         }
         console.log(this.insertQuestionObj)
-        await axios.post("http://localhost:8080/insert_gQuestions", this.insertQuestionObj);
+        await axios.post("http://localhost:3000/insert_gQuestions", this.insertQuestionObj);
     }
   }
 }
