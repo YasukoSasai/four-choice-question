@@ -18,6 +18,7 @@ export default {
   },
   created(){
     var hostName = document.location.hostname;
+    console.log(hostName)
     var host = 'localhost'
     if(hostName != 'localhost'){
       host = '3.15.222.210'
