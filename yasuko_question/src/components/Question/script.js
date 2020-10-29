@@ -17,8 +17,13 @@ export default {
     }
   },
   created(){
+    var hostName = document.location.hostname;
+    var host = 'localhost'
+    if(hostName != 'localhost'){
+      host = '3.15.222.210'
+    }
     // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
-    axios.get('http://localhost:3000/g_questions')
+    axios.get(`http://${host}:3000/g_questions`)
       .then(response => {
         console.log(response)
         console.log(response.data[1])
@@ -26,7 +31,6 @@ export default {
     })
   },
   mounted(){
-    console.log(this.questions)
     this.colref = firebase.firestore().collection("memos"); // "memos"という名前のコレクションへの参照を作成
     this.questionsDB = firebase.firestore().collection("questionsDB"); // "memos"という名前のコレクションへの参照を作成
   },

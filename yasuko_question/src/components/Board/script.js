@@ -21,7 +21,11 @@ export default {
   },
   methods:{
     async insertQuestion(){
-        console.log("hello")
+      var hostName = document.location.hostname;
+      var host = 'localhost'
+      if(hostName != 'localhost'){
+        host = '3.15.222.210'
+      }
          //JSONデータを送信(axiosはデフォルトでJSONを送信)
 
     //   var data = {
@@ -44,7 +48,7 @@ export default {
             "explanation": this.explanation
         }
         console.log(this.insertQuestionObj)
-        await axios.post("http://localhost:3000/insert_gQuestions", this.insertQuestionObj);
+        await axios.post(`http://${host}:3000/insert_gQuestions`, this.insertQuestionObj);
     }
   }
 }
