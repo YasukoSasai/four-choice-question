@@ -1,53 +1,39 @@
 <div id="board">
-  <h1 style="text-align: center;">G検定掲示板</h1><br>
-  <p style="font-weight:bold;">G検定過去問トレーニング掲示板は、受験者どうしの雑談や1人ではわからない問題を解決する場として設置してあります。コミュニティとしての活用はもちろん、管理人への連絡に使っていただいても構いません。</p><br>
+  <h1 style="text-align: center;">管理者画面</h1><br>
+  <p class="management">この画面から問題を追加しh2データベースでSCRIPT TO 'backup.sql'でバックアップを取り<br>そのファイル内容をコピーしてdata.sqlに貼り付け更新してください。</p><br>
   
-  <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; ">
-  <br>
-  <div class="form">
-    <body>
-      <section>
-          <h2>新規投稿</h2>
-          <form action="" method="post">
-              <div class="name"><span id="name" class="label">お名前</span><input type="text" name="name" value="" style="border: 2px solid rgb(104, 148, 201); border-radius: 6px"></div>
-              
-              <div class="content"><span id="form" class="label">内容</span><textarea name="comment" cols="30" rows="3" maxlength="200" wrap="hard" placeholder="200字以内で入力してください。" style="border: 2px solid rgb(104, 148, 201); border-radius: 6px"></textarea></div>
-              
-              <v-btn depressed small color="rgba(51,51,51, 0.8)" dark style="height: 50px; width: 170px; font-size: 18px;">投稿</v-btn>
-              <input type="submit" value="送信する">
-              <div v-show="resultFlag" style="padding-top:30px;">
-                <h3 style="color: #7491e1;">投稿完了</h3>
-              </div>             
-          </form>
-      </section>
-      
-      <section class="toukou">
-          <h2>投稿一覧</h2>
-          <p>投稿はまだありません</p>
-      </section>
-      </body>
+  <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; margin-bottom: 50px;">
+  
+  
+  <!-- <div> -->
+    <div class="flex">
+      <p class="text">問題番号</p><input v-model="questionNumber"  class="form" style=" height:26px;">
+    </div><br>
+    <div class="flex">
+    <p class="text">問題</p><input v-model="question" class="form" style=" height:100px;">
+    </div><br>    
+    <div class="flex">
+    <p class="text">選択肢１</p><input v-model="choice1"  class="form" style=" height:70px;">
+    </div>
+    <div class="flex">
+    <p class="text">選択肢２</p><input v-model="choice2"  class="form" style=" height:70px;">
+    </div>
+    <div class="flex">
+    <p class="text">選択肢３</p><input v-model="choice3"  class="form" style=" height:70px;">
+    </div>
+    <div class="flex">
+    <p class="text">選択肢４</p><input v-model="choice4" class="form" style=" height:70px;">
+    </div><br>
+    <div class="flex">
+    <p class="text">答え</p><input v-model="answer" class="form" style=" height:26px;">
+    </div>
+    <div class="flex">
+    <p class="text">解説</p><input v-model="explanation"  class="form" style=" height:100px;">
+    </div>
+  <!-- </div> -->
+  <div class="addBtn">
+    <v-btn @click="insertQuestion()" color="rgba(51,51,51, 0.8)" dark >
+      問題追加
+    </v-btn>
   </div>
-  <div class="toHome">
-    <router-link to="/" class="button">
-      <v-btn depressed small color="rgba(51,51,51, 0.8)" dark style="height: 50px; width: 170px; font-size: 18px;">HOME</v-btn>
-    </router-link>
-  </div>
-  <v-btn @click="insertQuestion()" color="rgba(51,51,51, 0.8)" dark >
-    次の問題へ
-  </v-btn><br>
-  <input v-model="questionNumber" placeholder="questionNumberを入力">
-  <br>
-  <input v-model="question" placeholder="questionを入力">
-  <br>
-  <input v-model="choice1" placeholder="choice1を入力">
-  <br>
-  <input v-model="choice2" placeholder="choice2を入力">
-  <br>
-  <input v-model="choice3" placeholder="choice3を入力">
-  <br>
-  <input v-model="choice4" placeholder="choice4を入力">
-  <br>
-  <input v-model="answer" placeholder="answerを入力">
-  <br>
-  <input v-model="explanation" placeholder="explanationを入力">
 </div>
