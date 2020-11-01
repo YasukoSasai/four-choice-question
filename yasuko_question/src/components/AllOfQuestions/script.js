@@ -5,8 +5,8 @@ import axios from 'axios'
 export default {
   data(){
     return {
-      questionNumber,
-      questionsQuestion,
+      questionNumber: null,
+      questionsQuestion: null,
       questionsChoces: [],
       
      }

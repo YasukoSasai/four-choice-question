@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" v-if="this.questions">
   <div style="font-weight:bold;">
     <!-- <button @click="readQuestions()">
       参照！！！！！！！！！！！
@@ -17,7 +17,8 @@
   <div class="question-parts">
     問題{{this.questionNumber + 1}}
   </div>
-  <div class="question-parts2">{{ questions[this.questionNumber].question }}
+  <div class="question-parts2">
+    {{ this.questions[this.questionNumber].question }}
   </div>
   <img v-bind:src="questions[this.questionNumber].image">
   <div 

@@ -13,7 +13,7 @@ export default {
       rateOfCorrect:0,
       numOfClick: 0,
       isPush: false,
-      questions:[]
+      questions:null
     }
   },
   created(){
