@@ -1,12 +1,10 @@
 #board {
-  /* height: 510px; */
   margin:30px 100px;
   padding: 30px;
   border-radius: 10px;
   color:rgba(44,62,80, 0.9);
   background-color: rgba(255, 255, 255, 0.2);
   text-align:center;
-  /* min-width: 100%; */
 }
 
 .management{
@@ -15,6 +13,9 @@
   margin-bottom: 20px;
 }
 
+#content{
+  padding: 50px;
+}
 .text{
   font-weight:bold;
   vertical-align: middle;
@@ -26,15 +27,12 @@ margin-right: 10px;
 }
 
 .flex{
-  /* width: 500px; */
   display: flex;
   flex-direction:row;
   justify-content: center;
-  /* width: 100%； */
 }
 
 input{
-  /* border: 1px solid rgb(108, 107, 107); */
   border-radius: 5px;
   width: 400px;
   background-color: rgba(254, 254, 255, 0.2);
