@@ -6,12 +6,12 @@ import AllOfQuestions from "@/components/AllOfQuestions/Index.vue";
 
 
 export default [
-  {
+    {
 		path: '/',
 		component: Home
-  },
-  {
-		path: '/question',
+    },
+    {
+		path: '/question/:questionNumber',
 		component: Question
 	},
 	{

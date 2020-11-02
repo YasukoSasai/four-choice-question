@@ -16,6 +16,11 @@ export default {
       questions:null
     }
   },
+  computed: {
+    UrlParamOfQuestionNumber () {
+      return this.$route.params.questionNumber
+    }
+  },
   created(){
     var hostName = document.location.hostname;
     console.log(hostName)
@@ -34,6 +39,7 @@ export default {
   mounted(){
     this.colref = firebase.firestore().collection("memos"); // "memos"という名前のコレクションへの参照を作成
     this.questionsDB = firebase.firestore().collection("questionsDB"); // "memos"という名前のコレクションへの参照を作成
+    console.log(this.UrlParamOfQuestionNumber)
   },
   methods:{
 
@@ -106,13 +112,17 @@ export default {
     },
     nextQuestion(){
       this.explanationFlag = false;
-      if (this.questionNumber == (this.questions.length - 1)){
+      if (this.UrlParamOfQuestionNumber == (this.questions.length)){
         this.questionNumber = 0
         this.numOfCorrect = 0
         alert("もう問題はありません...はじめの問題に戻ります。")
+        this.$router.push("/question/1")
         this.isPush = false
       }else{
         this.questionNumber++
+        this.$router.push(`/question/${Number(this.UrlParamOfQuestionNumber)+1}`)
+        // this.$route.push("/question/3")
+        // this.$router.push(`/category/${id}`) 
         this.isPush = false
       }
       window.scrollTo( 0, 0 );

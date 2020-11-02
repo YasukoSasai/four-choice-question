@@ -15,21 +15,21 @@
   <hr class="hr">
   <br>
   <div class="question-parts">
-    問題{{this.questionNumber + 1}}
+    問題{{ this.UrlParamOfQuestionNumber}}
   </div>
   <div class="question-parts2">
-    {{ this.questions[this.questionNumber].question }}
+    {{ this.questions[this.UrlParamOfQuestionNumber - 1].question }}
   </div>
-  <img v-bind:src="questions[this.questionNumber].image">
+  <img v-bind:src="questions[this.UrlParamOfQuestionNumber - 1].image">
   <div 
     class="question-container"
-    v-for="(item, key) in questions[this.questionNumber].choices"
+    v-for="(item, key) in questions[this.UrlParamOfQuestionNumber - 1].choices"
     v-bind:key=key 
   >
-  <v-btn class="choice-button" depressed small color="rgba(51,51,51, 0.8)" dark @click="check(key, questions[questionNumber].answer)">
+  <v-btn class="choice-button" depressed small color="rgba(51,51,51, 0.8)" dark @click="check(key, questions[this.UrlParamOfQuestionNumber - 1].answer)">
     {{key + 1}}
   </v-btn>
-  <div class="choice-txt" @click="check(key, questions[questionNumber].answer)">
+  <div class="choice-txt" @click="check(key, questions[this.UrlParamOfQuestionNumber - 1].answer)">
     {{ item }} 
   </div>    
   </div>
@@ -45,9 +45,9 @@
       <div style="padding-top:30px;">
         <h3>解説: </h3>
       </div>
-      <div style="padding-top:30px;" v-html="questions[this.questionNumber].explanation">        
+      <div style="padding-top:30px;" v-html="questions[this.UrlParamOfQuestionNumber - 1].explanation">        
       </div><br>
-      <img v-bind:src="questions[this.questionNumber].image2">
+      <img v-bind:src="questions[this.UrlParamOfQuestionNumber - 1].image2">
     </div>
   </transition>
 
