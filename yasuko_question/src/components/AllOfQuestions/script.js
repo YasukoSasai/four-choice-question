@@ -17,26 +17,41 @@ export default {
     }
   },
   created(){
-    var hostName = document.location.hostname;
-    console.log(hostName)
-    var host = 'localhost'
-    if(hostName != 'localhost'){
-      host = '3.15.222.210'
-    }
-    // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
-    axios.get(`http://${host}:3000/g_questions`)
-      .then(response => {
-        console.log(response)
-        console.log(response.data[1])
-        this.questions = response.data
-    })
+    this.getQuestion();
   },
   mounted(){
     this.colref = firebase.firestore().collection("memos"); // "memos"という名前のコレクションへの参照を作成
     this.questionsDB = firebase.firestore().collection("questionsDB"); // "memos"という名前のコレクションへの参照を作成
   },
   methods:{
-
+    getQuestion(){
+      var hostName = document.location.hostname;
+      console.log(hostName)
+      var host = 'localhost'
+      if(hostName != 'localhost'){
+        host = '3.15.222.210'
+      }
+      // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
+      axios.get(`http://${host}:3000/g_questions`)
+        .then(response => {
+          console.log(response)
+          console.log(response.data[1])
+          this.questions = response.data
+      })
+    },
+    deleteQuestion( questionNumber ){
+      console.log(questionNumber)
+      var hostName = document.location.hostname;
+      console.log(hostName)
+      var host = 'localhost'
+      if(hostName != 'localhost'){
+        host = '3.15.222.210'
+      }
+      axios.get(`http://${host}:3000/delete_gQuestions/${questionNumber}`)
+      .then(
+        window.location.reload()
+      )
+    },
     addQuestions(){
       for(var i=0; i<this.questions.length; i++){
 
