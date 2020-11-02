@@ -4,12 +4,17 @@ import axios from 'axios'
 
 export default {
   data(){
-    return {
-      questionNumber: null,
-      questionsQuestion: null,
-      questionsChoces: [],
-      
-     }
+    return{
+      colref: null,
+      questionNumber: 0,
+      explanationFlag: false,
+      resultFlag: null,
+      numOfCorrect: 0,
+      rateOfCorrect:0,
+      numOfClick: 0,
+      isPush: false,
+      questions: null
+    }
   },
   created(){
     var hostName = document.location.hostname;
@@ -89,11 +94,6 @@ export default {
       element.scrollIntoView({block: "end"});
       element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }, 
-
-
-
-
-
     check(selected, answer){
       if(!this.isPush) this.numOfClick++
       this.explanationFlag = true;

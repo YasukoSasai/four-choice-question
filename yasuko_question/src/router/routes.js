@@ -26,4 +26,8 @@ export default [
 		path: '/allOfQuestions',
 		component: AllOfQuestions
 	},
+	{
+		path: '',
+		// component: Question
+	}
 ]

@@ -51,30 +51,18 @@ export default {
      });
       }
     },
-    readQuestions(){
-      this.questionsDB.onSnapshot(function (querySnapshot) {
-        var todos = [];
-        querySnapshot.forEach(function (doc) {
-          var data = doc.data();
-          data.id = doc.id;
-          // firestoreの内のデータをtodosに格納
-          todos.push(data);
-        });
-        this.questions = todos
-        console.log(this.questions)
-    });
-  },
+ 
 
-    sendItem(data){
-      // addの引数に保存したいデータを渡す
-      this.colref.add(data).then(function(docRef) {
-           // 正常にデータ保存できた時の処理
-           console.log("Document written with ID: ", docRef.id);
-       }).catch(function(error) {
-           // エラー発生時の処理
-           console.error("Error adding document: ", error);
-       });
-    },
+    // sendItem(data){
+    //   // addの引数に保存したいデータを渡す
+    //   this.colref.add(data).then(function(docRef) {
+    //        // 正常にデータ保存できた時の処理
+    //        console.log("Document written with ID: ", docRef.id);
+    //    }).catch(function(error) {
+    //        // エラー発生時の処理
+    //        console.error("Error adding document: ", error);
+    //    });
+    // },
     readItem(){
       this.colref.onSnapshot(function (querySnapshot) {
         var todos = [];

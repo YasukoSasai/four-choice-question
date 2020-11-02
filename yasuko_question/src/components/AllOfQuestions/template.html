@@ -1,8 +1,58 @@
-<div id="allOfQuestions">
-  <h1 style="text-align: center;">問題管理画面</h1><br>
-  <p class="management">追加済み問題です。不要な問題は削除してください。</p><br>
+<div id="allOfQuestions" v-if="this.questions"> 
+  <div id="board">
+    <h1 style="text-align: center;">問題管理画面</h1><br>
+    <h3 class="management">こちらから問題の削除・更新を行えます。</h3><br>
+    <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px;">
+  </div>
   
-  <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; margin-bottom: 50px;">
   
-  
+  <div v-for="item in this.questions"
+      :key="item.questionNumber"
+      class="card"
+  >
+    <div class="question-parts">
+      問題{{item.questionNumber}}
+    </div>
+    <div class="question-parts2">
+      {{ item.question }}
+    </div>
+    
+    <div 
+    class="question-container"
+    v-for="(item, key) in item.choices"
+    v-bind:key=key 
+  >
+  <v-btn class="choice-button" depressed small color="rgba(51,51,51, 0.8)" dark @click="check(key, item.answer)">
+    {{key + 1}}
+  </v-btn>
+  <div class="choice-txt" @click="check(key, item.answer)">
+    {{ item }} 
+  </div>    
+  </div>
+
+  <div id="answer">
+    <h3>答え :  {{ item.answer + 1 }}</h3>
+  </div>
+
+    <span id="target"></span>
+        <div style="padding-top:30px;">
+          <h3>解説: </h3>
+        </div>
+        <div style="padding-top:30px;" v-html="item.explanation"> 
+        </div><br>
+
+    <br>
+    <div>
+      <v-btn @click="nextQuestion()" color="rgba(51,51,51, 0.8)" dark style="margin-right: 10px;">
+        削除
+      </v-btn>   
+      <v-btn @click="nextQuestion()" color="rgba(51,51,51, 0.8)" dark >
+        更新
+      </v-btn>   
+    </div>
+  </div>
 </div>
+
+
+
+

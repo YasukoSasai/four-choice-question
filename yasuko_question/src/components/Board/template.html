@@ -1,11 +1,11 @@
 <div id="board">
-  <h1 style="text-align: center;">管理者画面</h1><br>
-  <p class="management">この画面から問題を追加しh2データベースでSCRIPT TO 'backup.sql'でバックアップを取り<br>そのファイル内容をコピーしてdata.sqlに貼り付け更新してください。</p><br>
-  
-  <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; margin-bottom: 50px;">
+  <div id="top">
+    <h1 style="text-align: center;  color:rgba(44,62,80, 0.9);  ">管理者画面</h1><br>
+    <h3 class="management">この画面から問題を追加しh2データベースでSCRIPT TO 'backup.sql'でバックアップを取り<br>そのファイル内容をコピーしてdata.sqlに貼り付け更新してください。</h3><br>  
+    <hr style="border:none; background-color: rgba(44,62,80, 0.7); height: 4px; ">
+  </div>
 
   <div id=content>
-
     <div class="flex">
     <p class="text">問題</p><v-text-field v-model="question" class="form" style=" height:70px;"></v-text-field>
     </div>    
@@ -27,11 +27,11 @@
     <div class="flex">
     <p class="text">解説</p><v-text-field v-model="explanation"  class="form" style=" height:70px;"></v-text-field>
     </div>
+    <div class="addBtn">
+      <v-btn @click="insertQuestion()" color="rgba(51,51,51, 0.8)" dark >
+        問題追加
+      </v-btn>
+    </div>
   </div>
   
-  <div class="addBtn">
-    <v-btn @click="insertQuestion()" color="rgba(51,51,51, 0.8)" dark >
-      問題追加
-    </v-btn>
-  </div>
 </div>
