@@ -1,5 +1,3 @@
-// import firebase from '@/firebase/firestore'
-import firebase from "firebase";
 import axios from 'axios'
 
 export default {
@@ -36,13 +34,7 @@ export default {
         this.questions = response.data
     })
   },
-  mounted(){
-    this.colref = firebase.firestore().collection("memos"); // "memos"という名前のコレクションへの参照を作成
-    this.questionsDB = firebase.firestore().collection("questionsDB"); // "memos"という名前のコレクションへの参照を作成
-    console.log(this.UrlParamOfQuestionNumber)
-  },
   methods:{
-
     addQuestions(){
       for(var i=0; i<this.questions.length; i++){
 
@@ -57,30 +49,6 @@ export default {
      });
       }
     },
- 
-
-    // sendItem(data){
-    //   // addの引数に保存したいデータを渡す
-    //   this.colref.add(data).then(function(docRef) {
-    //        // 正常にデータ保存できた時の処理
-    //        console.log("Document written with ID: ", docRef.id);
-    //    }).catch(function(error) {
-    //        // エラー発生時の処理
-    //        console.error("Error adding document: ", error);
-    //    });
-    // },
-    readItem(){
-      this.colref.onSnapshot(function (querySnapshot) {
-        var todos = [];
-        querySnapshot.forEach(function (doc) {
-          var data = doc.data();
-          data.id = doc.id;
-          // firestoreの内のデータをtodosに格納
-          todos.push(data);
-        });
-        console.log(todos)
-      });
-    },
     scrollToElement() {  
       var element = document.getElementById("target");
       element.scrollIntoView();
@@ -88,9 +56,10 @@ export default {
       element.scrollIntoView({block: "end"});
       element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }, 
-    check(selected, answer){
+    check(selected){
       if(!this.isPush) this.numOfClick++
       this.explanationFlag = true;
+      let answer = this.questions[this.UrlParamOfQuestionNumber - 1].answer
       if(selected === answer){
         this.resultFlag = true
         if(!this.isPush) this.numOfCorrect++
@@ -100,15 +69,6 @@ export default {
         this.isPush = true
       }
       this.scrollToElement()
-
-      const data = {
-        questionNumber: this.questionNumber + 1,
-        answerNumber: answer,
-        selectedNumber: selected,
-        result: this.resultFlag
-      }
-
-      this.sendItem(data)
     },
     nextQuestion(){
       this.explanationFlag = false;
@@ -122,7 +82,6 @@ export default {
         this.questionNumber++
         this.$router.push(`/question/${Number(this.UrlParamOfQuestionNumber)+1}`)
         // this.$route.push("/question/3")
-        // this.$router.push(`/category/${id}`) 
         this.isPush = false
       }
       window.scrollTo( 0, 0 );
