@@ -52,6 +52,10 @@ border:none;
   cursor: pointer;
 }
 
+#answer{
+  margin-top: 20px;
+ font-weight: bold; 
+}
 
 
 .fade {

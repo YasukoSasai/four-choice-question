@@ -44,7 +44,10 @@
         <h3 style="color: #1A237E;">不正解...</h3>
       </div>
       <div style="padding-top:30px;">
-        <h3>解説: </h3>
+        <div id="answer">
+          <h3>答え :  {{ questions[this.UrlParamOfQuestionNumber - 1].answer + 1 }}</h3>
+        </div>
+        <h3>解説 :  </h3>
       </div>
       <div style="padding-top:30px;" v-html="questions[this.UrlParamOfQuestionNumber - 1].explanation">        
       </div><br>
