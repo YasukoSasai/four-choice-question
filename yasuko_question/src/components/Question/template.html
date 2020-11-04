@@ -17,9 +17,10 @@
   <div class="question-parts">
     問題{{ this.UrlParamOfQuestionNumber}}
   </div>
-  <div class="question-parts2">
+  <!-- <div class="question-parts2">
     {{ this.questions[this.UrlParamOfQuestionNumber - 1].question }}
-  </div>
+  </div> -->
+  <div class="question-parts2" v-html="questions[this.UrlParamOfQuestionNumber - 1].question"></div>  
   <img v-bind:src="questions[this.UrlParamOfQuestionNumber - 1].image">
   <div 
     class="question-container"
