@@ -27,28 +27,19 @@ export default {
       host = '3.15.222.210'
     }
     // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
-    axios.get(`http://${host}:3000/g_questions`)
+    // responseのresponse.dataをthis.questionに代入してフロンで使えるようにしている（this view）
+    axios.get(`http://${host}:3000/g_questions`) 
       .then(response => {
         console.log(response)
         console.log(response.data[1])
         this.questions = response.data
+        console.log(1)
+        console.log(this)
+        console.log(2)
     })
   },
   methods:{
-    addQuestions(){
-      for(var i=0; i<this.questions.length; i++){
-
-        var data = this.questions[i]
-        // addの引数に保存したいデータを渡す
-        this.questionsDB.add(data).then(function(docRef) {
-         // 正常にデータ保存できた時の処理
-         console.log("Document written with ID: ", docRef.id);
-     }).catch(function(error) {
-         // エラー発生時の処理
-         console.error("Error adding document: ", error);
-     });
-      }
-    },
+    
     scrollToElement() {  
       var element = document.getElementById("target");
       element.scrollIntoView();

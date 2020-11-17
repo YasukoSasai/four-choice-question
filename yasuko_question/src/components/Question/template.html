@@ -1,9 +1,5 @@
 <div id="app" v-if="this.questions">
   <div style="font-weight:bold;">
-    <!-- <button @click="readQuestions()">
-      参照！！！！！！！！！！！
-    </button>
-    <button @click="addQuestions">問題追加</button> -->
     正解数: {{ numOfCorrect }}/{{ questions.length }}
     <div v-if="this.numOfClick == 0">
     正答率
@@ -17,9 +13,7 @@
   <div class="question-parts">
     問題{{ this.UrlParamOfQuestionNumber}}
   </div>
-  <!-- <div class="question-parts2">
-    {{ this.questions[this.UrlParamOfQuestionNumber - 1].question }}
-  </div> -->
+
   <div class="question-parts2" v-html="questions[this.UrlParamOfQuestionNumber - 1].question"></div>  
   <img v-bind:src="questions[this.UrlParamOfQuestionNumber - 1].image">
   <div 
