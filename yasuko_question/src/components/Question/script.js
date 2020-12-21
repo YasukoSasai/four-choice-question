@@ -27,7 +27,7 @@ export default {
       host = '3.15.222.210'
     }
     // バックエンド(spring boot)のRestful APIを実行しthis.questionsにresponse.data配列を格納
-    // responseのresponse.dataをthis.questionに代入してフロンで使えるようにしている（this view）
+    // responseのresponse.dataをthis.questionに代入してフロンで使えるようにしている（this viewインスタンス）
     axios.get(`http://${host}:3000/g_questions`) 
       .then(response => {
         console.log(response)
